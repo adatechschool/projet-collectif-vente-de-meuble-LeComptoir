@@ -1,0 +1,1 @@
+# projet-collectif-vente-de-meuble-secousse
