@@ -1,4 +1,5 @@
 import { Box, Heading, Input } from "@chakra-ui/react"
+import { Link } from "react-router-dom";
 
 function header() {
     return (
@@ -8,7 +9,7 @@ function header() {
             <Heading paddingBottom={"2rem"} as="h1" size="2xl">Le Comptoir</Heading>
             <Input maxW={"15rem"} placeholder="Search" />
             </Box>
-            <Heading as="h1" size="2xl">login</Heading>
+            <Link to="/login">Aller à la page de login</Link>
         </Box>
     )
 }
