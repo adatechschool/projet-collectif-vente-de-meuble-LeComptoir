@@ -1,4 +1,9 @@
 depenencies :
-npm i express
-npm i @supabase/supabase-js
-npm i cloudinary
+express
+@supabase/supabase-js
+cloudinary
+
+on sépare le code comme suit : 
+index.js avec les routes api
+supabase.js avec les requetes à la bdd
+couldinary.js avec

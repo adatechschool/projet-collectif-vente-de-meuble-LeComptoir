@@ -5,16 +5,7 @@ const app = express();
 const port = 3000;
 app.use(json());
 
-const { fetchMeubles, fetchMeublesType } = require("./functionsSupa");
-
-
-// config cloudinary
-const cloudinary = require("cloudinary");
-cloudinary.config({
-    cloud_name: "sample",
-    api_key: "285333835317682",
-    api_secret: "4vO4o7NkLZT04ZVbJh2oK4CtLDM",
-});
+const { fetchMeubles, fetchMeublesType } = require("./supabase");
 
 // endpoints
 app.get("/meubles", async (req, res) => {
