@@ -22,3 +22,21 @@ app.get("/meubles/:type", async (req, res) => {
 app.listen(port, () => {
     console.log(`Serveur en cours d'exécution sur le port ${port}`);
 });
+
+async function afficherDonnees() {
+    try {
+        // Récupérer tous les meubles
+        const tousLesMeubles = await fetchMeubles();
+        console.log("Tous les meubles:");
+        console.log(tousLesMeubles);
+
+        // Récupérer les meubles d'une catégorie spécifique (par exemple, "chaise")
+        const meublesNoir = await fetchMeublesType("Noir");
+        console.log("Meubles noir:");
+        console.log(meublesNoir);
+    } catch (error) {
+        console.error("Erreur:", error.message);
+    }
+}
+
+afficherDonnees();
