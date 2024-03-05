@@ -51,10 +51,10 @@ const Magasin = () => {
         paddingX={"4rem"}
         flexDirection={"column"}
       >
+        <Input marginBottom={"2rem"} placeholder="what do you want" />
         <Heading paddingBottom={"2rem"}>Filtre</Heading>
         <Heading paddingBottom={"2rem"}>Filtre</Heading>
         <Heading paddingBottom={"2rem"}>Filtre</Heading>
-        <Input placeholder="what do you want" />
       </Box>
       <Box id="productlist">
         {productlist.map((element, index) => (
