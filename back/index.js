@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 app.use(json());
 
-const { fetchMeubles, fetchMeublesType } = require("./supabase");
+const { fetchMeublesHomePage, fetchMeubleDetails } = require("./supabase");
 
 // endpoints
 app.get("/meubles", async (req, res) => {
@@ -26,12 +26,12 @@ app.listen(port, () => {
 async function afficherDonnees() {
     try {
         // Récupérer tous les meubles
-        const tousLesMeubles = await fetchMeubles();
+        const tousLesMeubles = await fetchMeublesHomePage();
         console.log("Tous les meubles:");
         console.log(tousLesMeubles);
 
         // Récupérer les meubles d'une catégorie spécifique (par exemple, "chaise")
-        const meublesNoir = await fetchMeublesType("Noir");
+        const meublesNoir = await fetchMeubleDetails(1);
         console.log("Meubles noir:");
         console.log(meublesNoir);
     } catch (error) {
