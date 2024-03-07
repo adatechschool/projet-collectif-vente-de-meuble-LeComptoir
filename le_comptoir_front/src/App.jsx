@@ -1,9 +1,8 @@
 import Header from './component/header'
-import Magasin from './component/magasin'
+import Magasin from './component/productGrids.jsx/magasin'
 import './App.css'
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from './component/login';
-
 const Hompeage = () => {
   return (
     <>
@@ -11,7 +10,6 @@ const Hompeage = () => {
      <Magasin />
     </>
   )
-
 }
 
 
