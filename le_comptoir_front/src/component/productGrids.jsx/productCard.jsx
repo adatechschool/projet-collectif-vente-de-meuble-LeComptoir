@@ -12,15 +12,11 @@ import {
   import { PriceTag } from './pricetag'
   
   export const ProductCard = (props) => {
-    const { product, rootProps } = props
-    const { name, imageUrl, price } = product
+    const { product } = props
+    const { name, imageUrl, price, type } = product
     return (
       <Stack
-        spacing={{
-          base: '4',
-          md: '5',
-        }}
-        {...rootProps}
+        type= {type}
       >
         <Box position="relative">
           <AspectRatio ratio={4 / 3}>
@@ -30,7 +26,6 @@ import {
               draggable="false"
               fallback={<Skeleton />}
               borderRadius={{
-                base: 'md',
                 md: 'xl',
               }}
             />

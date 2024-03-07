@@ -5,18 +5,7 @@ import { ProductGrid } from './productgrid'
 
 export const ProductList = () => (
   <Box
-    maxW="7xl"
-    mx="auto"
-    px={{
-      base: '4',
-      md: '8',
-      lg: '12',
-    }}
-    py={{
-      base: '6',
-      md: '8',
-      lg: '12',
-    }}
+    maxW="100rem"
   >
     <ProductGrid>
       {products.map((product) => (

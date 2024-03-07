@@ -1,24 +1,6 @@
 import React from "react";
-import { Image, Text, Box, Heading, Input } from "@chakra-ui/react";
+import { Box, Heading, Input } from "@chakra-ui/react";
 import { ProductList } from "./return";
-const ProductCard = ({ imageUrl, productName, description }) => {
-  return (
-    <Box display={"flex"}>
-      <Box mr="1rem">
-        <Image
-          src={imageUrl}
-          alt={productName}
-          boxSize="100px"
-          objectFit="cover"
-        />
-      </Box>
-      <Box>
-        <Text>{productName}</Text>
-        <Text>{description}</Text>
-      </Box>
-    </Box>
-  );
-};
 
 const Magasin = () => {
   
