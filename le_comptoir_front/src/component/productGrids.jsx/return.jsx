@@ -1,16 +1,15 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { ProductCard } from './productCard'
 import { products } from './data'
-import { ProductGrid } from './productgrid'
 
 export const ProductList = () => (
   <Box
     maxW="100rem"
   >
-    <ProductGrid>
+    <Box display={"Flex"} gap={"4rem"} overflowX={"scroll"}>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-    </ProductGrid>
+    </Box>
   </Box>
 )
