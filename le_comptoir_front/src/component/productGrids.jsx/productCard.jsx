@@ -24,7 +24,6 @@ import {
               src={imageUrl}
               alt={name}
               draggable="false"
-              fallback={<Skeleton />}
               borderRadius={{
                 md: 'xl',
               }}
