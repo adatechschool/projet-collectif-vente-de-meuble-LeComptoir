@@ -11,7 +11,7 @@ const fetchMeublesHomePage = async () => {
     try {
         let { data: meubles, error } = await supabase
             .from("meubles")
-            .select("id, Nom, Image, Categorie, Prix")
+            .select("id, nom, image, type, prix")
             .eq("Statut", "Disponible")
         if (error) {
             throw error;
@@ -32,11 +32,11 @@ const fetchMeubleDetails = async (id) => {
             .from("meubles")
             .select(`
                 id,
-                Nom,
-                Image,
-                Categorie,
-                Prix,
-                Description
+                nom,
+                image,
+                type,
+                prix,
+                description
             `)
             .eq("Statut", "Disponible")
             .eq("id", `${id}`);
