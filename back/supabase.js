@@ -39,7 +39,7 @@ const fetchMeubleDetails = async (id) => {
                 description
             `
             )
-            .eq("Statut", "Disponible")
+            .eq("statut", "Disponible")
             .eq("id", `${id}`);
         if (error) {
             throw error;
@@ -56,19 +56,16 @@ const fetchMeubleDetails = async (id) => {
 
 const fetchMeubleAdmin = async () => {
     try {
-        let { data: meubles, error } = await supabase.from("meubles").select(`
-                id,
-                nom,
-                prix,
-                statut
-            `);
+        let { data: meubles, error } = await supabase 
+            .from("meubles")
+            .select("id, nom, statut, prix");
         if (error) {
             throw error;
         }
         return meubles;
     } catch (error) {
         console.error(
-            "Erreur lors de la récupération des meubles de la catégorie:",
+            "Erreur lors de la récupération des meubles:",
             error.message
         );
         throw error;

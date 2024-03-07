@@ -20,7 +20,7 @@ app.get("/meubles/:id", async (req, res) => {
     res.send(data);
 });
 
-app.get("meubles/statut", async (req , res) =>{
+app.get("/admin", async (req , res) =>{
     const data = await fetchMeubleAdmin()
     res.send(data)
 } )
