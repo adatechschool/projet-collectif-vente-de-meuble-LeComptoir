@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Heading, Input } from "@chakra-ui/react";
 import { ProductList } from "./return";
+import CustomDrawer from "./../drawer";
 
 const Magasin = () => {
-  
   return (
     <Box marginTop={"6rem"} display={"flex"}>
       <Box
@@ -13,10 +13,7 @@ const Magasin = () => {
         paddingX={"4rem"}
         flexDirection={"column"}
       >
-        <Input marginBottom={"2rem"} placeholder="what do you want" />
-        <Heading paddingBottom={"2rem"}>Filtre</Heading>
-        <Heading paddingBottom={"2rem"}>Filtre</Heading>
-        <Heading paddingBottom={"2rem"}>Filtre</Heading>
+        <CustomDrawer />
       </Box>
       <ProductList />
     </Box>
