@@ -1,7 +1,8 @@
-import { Box, Heading, Input } from "@chakra-ui/react"
+import { Box, Heading, Input, Button ,} from "@chakra-ui/react"
 import { Link } from "react-router-dom";
 
 function header() {
+ 
     return (
         <Box display={"flex"} justifyContent={"space-between"} width={"100%"} paddingX={"4rem"}>
             <Heading as="h1" size="2xl">logo</Heading>
