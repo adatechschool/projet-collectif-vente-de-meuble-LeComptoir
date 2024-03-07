@@ -1,23 +1,24 @@
 import {
-    AspectRatio,
-    Box,
-    Button,
-    Image,
-    Link,
-    Skeleton,
-    Stack,
-    Text,
-    useColorModeValue,
-  } from '@chakra-ui/react'
-  import { PriceTag } from './pricetag'
-  
-  export const ProductCard = (props) => {
-    const { product } = props
-    const { name, imageUrl, price, type } = product
-    return (
-      <Stack
-        type= {type}
-      >
+  AspectRatio,
+  Box,
+  Button,
+  Image,
+  Stack,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { PriceTag } from "./pricetag";
+import { Link } from "react-router-dom";
+
+export const ProductCard = (props) => {
+  const { product } = props;
+  const { id ,name, imageUrl, price, type } = product;
+  return (
+    <Link to={{
+      pathname: '/product',
+      state: { product }
+     }}>
+      <Stack id={id}>
         <Box position="relative">
           <AspectRatio ratio={4 / 3}>
             <Image
@@ -25,32 +26,35 @@ import {
               alt={name}
               draggable="false"
               borderRadius={{
-                md: 'xl',
+                md: "xl",
               }}
             />
           </AspectRatio>
         </Box>
         <Stack>
           <Stack spacing="1">
-            <Text fontWeight="medium" color={useColorModeValue('gray.700', 'gray.400')}>
+            <Text
+              fontWeight="medium"
+              color={useColorModeValue("gray.700", "gray.400")}
+            >
               {name}
             </Text>
             <PriceTag price={price} currency="USD" />
           </Stack>
-
         </Stack>
         <Stack align="center">
           <Button colorScheme="blue" width="full">
             Add to cart
           </Button>
-          <Link
+          <Text
             textDecoration="underline"
             fontWeight="medium"
-            color={useColorModeValue('gray.600', 'gray.400')}
+            color={useColorModeValue("gray.600", "gray.400")}
           >
             Quick shop
-          </Link>
+          </Text>
         </Stack>
       </Stack>
-    )
-  }
+    </Link>
+  );
+};
