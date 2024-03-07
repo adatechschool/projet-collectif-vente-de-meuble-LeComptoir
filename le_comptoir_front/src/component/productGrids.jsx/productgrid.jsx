@@ -16,7 +16,6 @@ export const ProductGrid = (props) => {
 
   return (
     <SimpleGrid
-      overflowX="scroll"
       columns={5}
       columnGap="2.5rem"
       rowGap="1rem"
