@@ -3,6 +3,15 @@ const express = require("express");
 const { json } = require("express");
 const app = express();
 const port = 3000;
+const cors = require('cors')
+
+const corsOptions = {
+    origin : [
+        "http://localhost:5173"
+    ],
+    optionSuccesStatus : 200
+}
+app.use(cors(corsOptions))
 app.use(json());
 
 // import des fonctions de requetes

@@ -39,7 +39,7 @@ export const ProductCard = (props) => {
             >
               {name}
             </Text>
-            <PriceTag price={price} currency="USD" />
+            <Text> {price} </Text>
           </Stack>
         </Stack>
         <Stack align="center">

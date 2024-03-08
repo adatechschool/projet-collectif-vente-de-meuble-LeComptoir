@@ -17,7 +17,6 @@ import { useLocation } from "react-router-dom";
 function Product() {
   const location = useLocation();
   const product = location.state?.product; 
-  console.log(product);
 
   if (!product) {
     return (
@@ -40,7 +39,7 @@ function Product() {
             <Heading size="md">{product.name}</Heading>
             <Text>{product.description}</Text>
             <Text color="#A67B5B" fontSize="2xl">
-              ${product.price}
+              ${parseInt(product.price)}
             </Text>
           </Stack>
         </CardBody>

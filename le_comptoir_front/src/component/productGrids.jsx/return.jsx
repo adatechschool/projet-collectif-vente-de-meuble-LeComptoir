@@ -1,15 +1,37 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { ProductCard } from './productCard'
-import { products } from './data'
+import { useEffect, useState } from 'react'
 
-export const ProductList = () => (
+function ProductList () {
+  const [data, setdata] = useState(null)
+  
+  const getData = async () => {
+    const res = await fetch("http://localhost:3000/meubles")
+    const data = await res.json()
+    setdata(data)
+  }
+
+  useEffect(()=>{
+    const fetchMeubles = async () =>{
+      await getData()
+    }
+    fetchMeubles()
+  }, [])
+
+
+  return(
   <Box
     maxW="100rem"
   >
     <Box display={"Flex"} gap={"4rem"} >
-      {products.map((product) => (
+      {data ? 
+      ( data.map((product) => (
         <ProductCard key={product.id} product={product} />
-      ))}
+      ))) : ""
+
+    }
     </Box>
   </Box>
-)
+)}
+
+export default ProductList;
