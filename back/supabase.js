@@ -10,7 +10,7 @@ const fetchMeublesHomePage = async () => {
     try {
         let { data: meubles, error } = await supabase //api de supabase pour fetch les données d'une table
             .from("meubles")
-            .select("id, nom, image, type, prix")
+            .select("id, nom, image, type, prix, description")
             .eq("statut", "Disponible");
         if (error) {
             throw error;

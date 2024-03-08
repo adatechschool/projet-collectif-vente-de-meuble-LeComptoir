@@ -10,25 +10,25 @@ function ProductList () {
     const data = await res.json()
     setdata(data)
   }
-
+  
   useEffect(()=>{
     const fetchMeubles = async () =>{
       await getData()
     }
     fetchMeubles()
   }, [])
-
+  
 
   return(
-  <Box
+    <Box
     maxW="100rem"
-  >
+    >
     <Box display={"Flex"} gap={"4rem"} >
-      {data ? 
+      {data && data.length > 0 ? 
       ( data.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))) : ""
-
+        <ProductCard key={product.id} product={product}/>
+        ))
+      ) : "" 
     }
     </Box>
   </Box>

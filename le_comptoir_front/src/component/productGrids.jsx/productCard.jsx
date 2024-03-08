@@ -7,23 +7,24 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { PriceTag } from "./pricetag";
 import { Link } from "react-router-dom";
 
 export const ProductCard = (props) => {
   const { product } = props;
-  const { id, name, imageUrl, price, type } = product;
+  const { id, image , nom, prix, type, description } = product;
+  
+  console.log("ProductCard , product:", product)
   return (
     <Link
-      to="/product"
+    to="/product"
       state={{ product }} 
     >
       <Stack id={id}>
         <Box position="relative">
           <AspectRatio ratio={4 / 3}>
             <Image
-              src={imageUrl}
-              alt={name}
+              src={image}
+              alt={nom}
               draggable="false"
               borderRadius={{
                 md: "xl",
@@ -37,9 +38,9 @@ export const ProductCard = (props) => {
               fontWeight="medium"
               color={useColorModeValue("gray.700", "gray.400")}
             >
-              {name}
+              {nom}
             </Text>
-            <Text> {price} </Text>
+            <Text> {prix} </Text>
           </Stack>
         </Stack>
         <Stack align="center">

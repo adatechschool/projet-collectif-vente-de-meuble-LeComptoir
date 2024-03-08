@@ -17,6 +17,7 @@ import { useLocation } from "react-router-dom";
 function Product() {
   const location = useLocation();
   const product = location.state?.product; 
+  console.log("Product , product:", product)
 
   if (!product) {
     return (
@@ -25,22 +26,23 @@ function Product() {
       </Container>
     );
   }
-
+  
   return (
     <Container maxW="2xl" centerContent>
       <Card maxW="40rem">
         <CardBody>
           <Image
-            src={product.imageUrl} 
-            alt={product.name} 
+            src={product.image} 
+            alt={product.nom} 
             borderRadius="lg"
           />
           <Stack mt="6" spacing="3">
-            <Heading size="md">{product.name}</Heading>
-            <Text>{product.description}</Text>
+            <Heading size="md">{product.nom}</Heading>
+            <Text>{product.type}</Text>
             <Text color="#A67B5B" fontSize="2xl">
-              ${parseInt(product.price)}
+              ${product.prix}
             </Text>
+            <Text> {product.description} </Text>
           </Stack>
         </CardBody>
         <Divider />
