@@ -14,28 +14,33 @@ import {
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-function product() {
-    // const location = useLocation();
-    // const { product } = location.state;
-    // console.log(product);
+function Product() {
+  const location = useLocation();
+  const product = location.state?.product; 
+  console.log(product);
+
+  if (!product) {
+    return (
+      <Container maxW="2xl" centerContent>
+        <Text>Product not found</Text>
+      </Container>
+    );
+  }
+
   return (
     <Container maxW="2xl" centerContent>
       <Card maxW="40rem">
         <CardBody>
           <Image
-            src="https://japandistore.com/cdn/shop/files/3SeaterJapandiSofa_3.png?v=1690730447&width=1000"
-            alt="Green double couch with wooden legs"
+            src={product.imageUrl} 
+            alt={product.name} 
             borderRadius="lg"
           />
           <Stack mt="6" spacing="3">
-            <Heading size="md">Living room Sofa</Heading>
-            <Text>
-              This sofa is perfect for modern spaces, japandi inspired spaces,
-              earthy toned spaces and for people who love a chic design with a
-              sprinkle of vintage design.
-            </Text>
+            <Heading size="md">{product.name}</Heading>
+            <Text>{product.description}</Text>
             <Text color="#A67B5B" fontSize="2xl">
-              $450
+              ${product.price}
             </Text>
           </Stack>
         </CardBody>
@@ -55,4 +60,4 @@ function product() {
   );
 }
 
-export default product;
+export default Product;

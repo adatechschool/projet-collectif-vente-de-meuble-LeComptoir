@@ -6,7 +6,7 @@ export const ProductList = () => (
   <Box
     maxW="100rem"
   >
-    <Box display={"Flex"} gap={"4rem"} overflowX={"scroll"}>
+    <Box display={"Flex"} gap={"4rem"} >
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

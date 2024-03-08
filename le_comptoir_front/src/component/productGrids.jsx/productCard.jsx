@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 
 export const ProductCard = (props) => {
   const { product } = props;
-  const { id ,name, imageUrl, price, type } = product;
+  const { id, name, imageUrl, price, type } = product;
   return (
-    <Link to={{
-      pathname: '/product',
-      state: { product }
-     }}>
+    <Link
+      to="/product"
+      state={{ product }} 
+    >
       <Stack id={id}>
         <Box position="relative">
           <AspectRatio ratio={4 / 3}>
