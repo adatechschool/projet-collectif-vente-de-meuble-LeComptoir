@@ -5,17 +5,16 @@ const supabaseKey =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFleW9rcWxya21zZHBocmF5ZmZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk1NjA1NjIsImV4cCI6MjAyNTEzNjU2Mn0.81oa_X285MaatrDWu8rwUvf1-7fGRK_Y3RGZHke7Xuk";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-
-// requests functions 
+// requests functions
 const fetchMeublesHomePage = async () => {
     try {
-        let { data: meubles, error } = await supabase
+        let { data: meubles, error } = await supabase //api de supabase pour fetch les données d'une table
             .from("meubles")
-            .select("id, nom, image, type, prix")
-            .eq("Statut", "Disponible")
+            .select("id, nom, image, type, prix, description")
+            .eq("statut", "Disponible");
         if (error) {
             throw error;
-        }   
+        }
         return meubles;
     } catch (error) {
         console.error(
@@ -30,15 +29,17 @@ const fetchMeubleDetails = async (id) => {
     try {
         let { data: meubles, error } = await supabase
             .from("meubles")
-            .select(`
+            .select(
+                `
                 id,
                 nom,
                 image,
                 type,
                 prix,
                 description
-            `)
-            .eq("Statut", "Disponible")
+            `
+            )
+            .eq("statut", "Disponible")
             .eq("id", `${id}`);
         if (error) {
             throw error;
@@ -53,5 +54,22 @@ const fetchMeubleDetails = async (id) => {
     }
 };
 
+const fetchMeubleAdmin = async () => {
+    try {
+        let { data: meubles, error } = await supabase 
+            .from("meubles")
+            .select("id, nom, statut, prix");
+        if (error) {
+            throw error;
+        }
+        return meubles;
+    } catch (error) {
+        console.error(
+            "Erreur lors de la récupération des meubles:",
+            error.message
+        );
+        throw error;
+    }
+};
 
-module.exports = { fetchMeublesHomePage, fetchMeubleDetails };
+module.exports = { fetchMeublesHomePage, fetchMeubleDetails, fetchMeubleAdmin };

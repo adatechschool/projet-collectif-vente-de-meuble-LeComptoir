@@ -1,8 +1,12 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
 import Header from './component/header'
 import Magasin from './component/productGrids.jsx/magasin'
-import './App.css'
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from './component/login';
+import Product from './component/prooductPage/product'
+
+import './App.css'
+
 const Hompeage = () => {
   return (
     <>
@@ -20,12 +24,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Hompeage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/product" element={<Login />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
     </Router>
     </>
   )
- 
 }
 
 export default App
