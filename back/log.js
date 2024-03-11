@@ -1,5 +1,3 @@
-// auth.js
-
 const { createClient } = require("@supabase/supabase-js");
 
 // URL et clé d'API Supabase
@@ -25,7 +23,6 @@ const signInUser = async (email, password) => {
         if (error) {
             throw error;
         }
-
         // Vérifier si l'utilisateur existe
         if (users.length === 0) {
             console.log("Utilisateur non trouvé");
@@ -33,7 +30,7 @@ const signInUser = async (email, password) => {
         }
 
         // Si l'utilisateur est trouvé, renvoyer l'utilisateur connecté
-        console.log("Utilisateur connecté:", users[0]);
+        //console.log("Utilisateur connecté:", users[0]);
         return { user: users[0] };
     } catch (error) {
         console.error("Erreur lors de la connexion:", error.message);
@@ -41,4 +38,4 @@ const signInUser = async (email, password) => {
     }
 };
 
-module.exports = { signInUser };
+export default signInUser;

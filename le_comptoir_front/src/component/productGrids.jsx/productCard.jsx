@@ -9,11 +9,11 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
+
 export const ProductCard = (props) => {
   const { product } = props;
   const { id, image , nom, prix, type, description } = product;
   
-  console.log("ProductCard , product:", product)
   return (
     <Link
     to="/product"
@@ -21,7 +21,7 @@ export const ProductCard = (props) => {
     >
       <Stack id={id}>
         <Box position="relative">
-          <AspectRatio ratio={4 / 3}>
+          <AspectRatio height={"8rem"} width={"8rem"} ratio={4 / 3}>
             <Image
               src={image}
               alt={nom}
@@ -40,20 +40,13 @@ export const ProductCard = (props) => {
             >
               {nom}
             </Text>
-            <Text> {prix} </Text>
+            <Text> {prix}€ </Text>
           </Stack>
         </Stack>
         <Stack align="center">
-          <Button colorScheme="blue" width="full">
-            Add to cart
+          <Button backgroundColor="#D8C0AA" width="full">
+          Quick shop
           </Button>
-          <Text
-            textDecoration="underline"
-            fontWeight="medium"
-            color={useColorModeValue("gray.600", "gray.400")}
-          >
-            Quick shop
-          </Text>
         </Stack>
       </Stack>
     </Link>

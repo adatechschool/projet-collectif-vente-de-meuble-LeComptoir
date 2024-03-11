@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, Stack, Heading } from '@chakra-ui/react';
+// import { singInUser } from '../../../back/supabase';
+// import ProductManage  from './admin/productManage';
+import { Route, Router, Routes } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        // Logique de connexion ici
+    const handleLogin = async () => {
+        const singInRes = await singInUser(email, password)
+        if (singInRes){
+            return (
+                <Router>
+                    <Routes>
+                        <Route path='/admin' element={<ProductManage />} />
+                    </Routes>
+                </Router>
+            )
+        }else{
+            return 
+        }
     };
 
     return (
         <Box maxW="md" mx="auto" mt={8} p={4}>
-             <Box><Heading paddingBottom={"2rem"} as="h1" size="2xl">Le Comptoir</Heading>
+            
+            <Box><Heading paddingBottom={"2rem"} as="h1" size="2xl">Le Comptoir</Heading>
             </Box>
             <FormControl>
                 <FormLabel>Email</FormLabel>
@@ -25,7 +40,7 @@ const Login = () => {
                 <Button colorScheme="blue" onClick={handleLogin}>Se connecter</Button>
                 <Button variant="outline">Mot de passe oublié</Button>
             </Stack>
-           
+
         </Box>
     );
 };

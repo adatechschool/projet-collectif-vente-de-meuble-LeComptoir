@@ -3,12 +3,12 @@ import { ProductCard } from './productCard'
 import { useEffect, useState } from 'react'
 
 function ProductList () {
-  const [data, setdata] = useState(null)
+  const [data, setdata] = useState(null)    // initalise data | setdata est une fonction qui permet de mettre à jour la valeur de data
   
-  const getData = async () => {
+  const getData = async () => {       //sert à update la valeur de data
     const res = await fetch("http://localhost:3000/meubles")
-    const data = await res.json()
-    setdata(data)
+    const meubles = await res.json()
+    setdata(meubles) // ~data = meubles
   }
   
   useEffect(()=>{
@@ -20,10 +20,13 @@ function ProductList () {
   
 
   return(
+
+
     <Box
     maxW="100rem"
     >
-    <Box display={"Flex"} gap={"4rem"} >
+
+    <Box display={"Flex"} gap={"4rem"} flexWrap={"wrap"}>
       {data && data.length > 0 ? 
       ( data.map((product) => (
         <ProductCard key={product.id} product={product}/>

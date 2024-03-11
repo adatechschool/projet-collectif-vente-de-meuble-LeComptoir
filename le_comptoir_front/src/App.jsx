@@ -10,8 +10,8 @@ import './App.css'
 const Hompeage = () => {
   return (
     <>
-     <Header />
-     <Magasin />
+      <Header />
+      <Magasin />
     </>
   )
 }
