@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import Header from './component/header'
 import Magasin from './component/productGrids.jsx/magasin'
-import Login from './component/login';
+import Login from './component/login/login';
 import Product from './component/prooductPage/product'
 
 import './App.css'
