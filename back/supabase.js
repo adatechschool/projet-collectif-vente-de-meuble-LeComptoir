@@ -74,15 +74,37 @@ const signInUser = async (email, password) => {
     }
 };
 
-async function changeState(id) {
+async function changeState(state, id) {
     try {
-        const { error } = await supabase
-            .from("countries")
-            .update({ name: "Australia" })
-            .eq("id", 1);
+        if (state !== "disponible") {
+            const { error } = await supabase
+                .from("meubles")
+                .update({ statut: "disponible" })
+                .eq("id", id);
+        } else {
+            const { error } = await supabase
+                .from("meubles")
+                .update({ statut: "indisponible" })
+                .eq("id", id);
+        }
     } catch (error) {
         console.error(
             "Erreur lors de la mise à jour du statut:",
+            error.message
+        );
+        return { error: "Erreur interne du serveur" };
+    }
+}
+
+async function deleteMeuble(id) {
+    try {
+        const { error } = await supabase.from("meubles").delete().eq("id", id);
+        if (error) {
+            throw error;
+        }
+    } catch (error) {
+        console.error(
+            "Erreur lors de la suppression du meuble:",
             error.message
         );
         return { error: "Erreur interne du serveur" };
@@ -94,4 +116,5 @@ module.exports = {
     fetchMeubleAdmin,
     signInUser,
     changeState,
+    deleteMeuble,
 };
