@@ -26,10 +26,12 @@ function ProductList () {
     <Box
     maxW="100rem"
     >
-    <Box display={"Flex"} width={"60rem"} gap={"4rem"} >
+    <Box display={"Flex"} width={"100%"} gap={"4rem"} flexWrap={"wrap"}>
       {data && data.length > 0 ? 
       ( data.map((product) => (
+        <Box width="20%">
         <ProductCard key={product.id} product={product}/>
+        </Box>
         ))
       ) : "" 
     }
