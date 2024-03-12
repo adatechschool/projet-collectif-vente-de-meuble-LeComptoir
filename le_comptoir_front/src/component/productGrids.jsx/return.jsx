@@ -23,7 +23,7 @@ function ProductList () {
 
 
     <Box
-    maxW="100rem"
+    maxW="100%"
     >
     <Box display={"Flex"} width={"100%"} gap={"4rem"} flexWrap={"wrap"}>
       {data && data.length > 0 ? 
