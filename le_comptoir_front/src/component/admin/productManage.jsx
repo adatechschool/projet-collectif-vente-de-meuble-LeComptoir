@@ -11,6 +11,7 @@ import {
     TableContainer,
     Box,
     Button,
+    Image
 } from '@chakra-ui/react'
 
 function productManage () {
@@ -38,13 +39,14 @@ const handleToggle = (id) =>{
 }
 
     return (
-    <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+    <Box display={"flex"} alignItems={"center"}>
         <TableContainer>
-            <Table variant='striped' colorScheme="">
+            <Table variant='striped' colorScheme="whiteAlpha">
                 
                 <Thead>
                     <Tr>
                         <Th>Nom</Th>
+                        <Th>Photo</Th>
                         <Th isNumeric>Prix</Th>
                         <Th>Statut</Th>
                         <Th>Actions</Th>
@@ -56,9 +58,12 @@ const handleToggle = (id) =>{
                     data.map((product) => (
                         <Tr key={product.id}>
                             <Td>{product.nom}</Td>
+                            <Td>
+                                <Image src={product.image} width={"6rem"}></Image>
+                            </Td>
                             <Td isNumeric>{product.prix}</Td>
                             <Td>{product.statut}</Td>
-                            <Td display={"flex"} gap={"1rem"}>
+                            <Td display={"flex"} gap={"1rem"} marginTop={"2rem"}>
                                 <Button className="adminBtn" onClick={() => handleToggle(product.id)}>Changer statut</Button>
                                 <Button className="adminBtn" onClick={() => handleDelete(product.id)}>Supprimer article</Button>
                             </Td>
