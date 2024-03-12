@@ -10,17 +10,13 @@ const corsOptions = {
   origin: ["http://localhost:5173"],
   optionSuccesStatus: 200,
 };
-app.use(cors(corsOptions));
-    origin: ["http://localhost:5173"],
-    optionSuccesStatus: 200,
-};
+
 app.use(cors(corsOptions));
 app.use(json());
 
 // import des fonctions de requetes
 const {
   fetchMeublesHomePage,
-  fetchMeubleDetails,
   fetchMeubleAdmin,
 } = require("./supabase");
 const { signInUser } = require("./log");
@@ -42,27 +38,14 @@ app.post("/signin", async (req, res) => {
 
 //route en get
 app.get("/meubles", async (req, res) => {
-  // req -> parametre de la route ; res -> reponse de la route
-  const data = await fetchMeublesHomePage();
-  res.send(data); // equivalnt à un return data
-app.get("/meubles", async (req, res) => {
     // req -> parametre de la route ; res -> reponse de la route
     const data = await fetchMeublesHomePage();
     res.send(data); // equivalnt à un return data
 });
 
-app.get("/meubles/:id", async (req, res) => {
-  const { id } = req.params; //on récup le parametre qui correspond à id dans le chemin
-  const data = await fetchMeubleDetails(id);
-  res.send(data);
 app.get("/admin", async (req, res) => {
     const data = await fetchMeubleAdmin();
     res.send(data);
-});
-
-app.get("/admin", async (req, res) => {
-  const data = await fetchMeubleAdmin();
-  res.send(data);
 });
 
 app.listen(port, () => {
