@@ -17,6 +17,7 @@ import { useLocation } from "react-router-dom";
 function Product() {
   const location = useLocation();
   const product = location.state?.product; 
+  console.log("Product, product:", product)
 
   if (!product) {
     return (
@@ -31,15 +32,15 @@ function Product() {
       <Card maxW="40rem">
         <CardBody>
           <Image
-            src={product.imageUrl} 
-            alt={product.name} 
+            src={product.image} 
+            alt={product.nom} 
             borderRadius="lg"
           />
           <Stack mt="6" spacing="3">
-            <Heading size="md">{product.name}</Heading>
+            <Heading size="md">{product.nom}</Heading>
             <Text>{product.description}</Text>
             <Text color="#A67B5B" fontSize="2xl">
-              ${product.price}
+              ${product.prix}
             </Text>
           </Stack>
         </CardBody>

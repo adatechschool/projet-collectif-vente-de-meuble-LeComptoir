@@ -1,8 +1,6 @@
 // config express server
 const express = require("express");
 const { json } = require("express");
-const cookieParser = require("cookie-parser");
-const jwt = require("jsonwebtoken");
 const app = express();
 const port = 3000;
 const cors = require("cors");
@@ -13,7 +11,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(json());
-app.use(cookieParser());
 
 // import des fonctions de requetes
 const {

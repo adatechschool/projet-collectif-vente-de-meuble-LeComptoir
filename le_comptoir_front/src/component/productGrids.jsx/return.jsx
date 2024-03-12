@@ -23,7 +23,7 @@ function ProductList () {
     <Box
     maxW="100rem"
     >
-    <Box display={"Flex"} gap={"4rem"} >
+    <Box display={"Flex"} width={"60rem"} gap={"4rem"} overflowX={"scroll"} >
       {data && data.length > 0 ? 
       ( data.map((product) => (
         <ProductCard key={product.id} product={product}/>
