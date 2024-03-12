@@ -25,7 +25,6 @@ app.post("/signin", async (req, res) => {
     if (!data) {
         res.status(404).json({ error: "User not found" });
     } else {
-        console.log("Data:", data);
         res.send(data);
     }
 });
