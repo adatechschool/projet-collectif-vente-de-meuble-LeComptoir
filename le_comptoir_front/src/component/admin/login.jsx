@@ -10,8 +10,6 @@ const Login = () => {
     const navigate = useNavigate()
 
     async function handleLogin() {
-        console.log("Email:", email);
-        console.log("Mot de passe:", password);
         const response = await fetch("http://localhost:3000/signin", {
             method: 'POST',
             headers: {
@@ -20,7 +18,6 @@ const Login = () => {
             body: JSON.stringify({ email, password })
         });
         const data = await response.json()
-        console.log("Data:", data)
         if (data.hasOwnProperty('users')) {
             navigate('/productManage')
         }
