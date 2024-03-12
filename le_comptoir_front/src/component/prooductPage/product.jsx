@@ -18,6 +18,7 @@ import { useLocation } from "react-router-dom";
 function Product() {
   const location = useLocation();
   const product = location.state?.product; 
+  console.log("Product, product:", product)
 
   if (!product) {
     return (
@@ -26,7 +27,7 @@ function Product() {
       </Container>
     );
   }
-  
+
   return (
     <Container width={"100%"} centerContent>
 
@@ -41,11 +42,10 @@ function Product() {
           />
           <Stack mt="6" spacing="3">
             <Heading size="md">{product.nom}</Heading>
-            <Text>{product.type}</Text>
+            <Text>{product.description}</Text>
             <Text color="#A67B5B" fontSize="2xl">
               {product.prix}€
             </Text>
-            <Text> {product.description} </Text>
           </Stack>
         </CardBody>
         <Divider />

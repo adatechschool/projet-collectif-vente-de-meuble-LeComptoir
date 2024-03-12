@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, Stack, Heading } from '@chakra-ui/react';
-// import { singInUser } from '../../../back/supabase';
-// import ProductManage  from './admin/productManage';
-import { Route, Router, Routes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
 
-    const handleLogin = async () => {
-        const singInRes = await singInUser(email, password)
-        if (singInRes){
-            return (
-                <Router>
-                    <Routes>
-                        <Route path='/admin' element={<ProductManage />} />
-                    </Routes>
-                </Router>
-            )
-        }else{
-            return 
-        }
+    async function handleLogin() {
+        console.log("Email:", email);
+        console.log("Mot de passe:", password);
+        const response = await fetch("http://localhost:3000/signin", {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        const data = await response.json()
+        console.log("Data:", data)
+        // if (data === true) {
+        //     navigate('/')
+        // }
     };
 
     return (
@@ -40,7 +41,6 @@ const Login = () => {
                 <Button colorScheme="blue" onClick={handleLogin}>Se connecter</Button>
                 <Button variant="outline">Mot de passe oublié</Button>
             </Stack>
-
         </Box>
     );
 };
