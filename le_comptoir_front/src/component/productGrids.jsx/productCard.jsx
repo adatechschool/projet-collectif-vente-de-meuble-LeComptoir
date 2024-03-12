@@ -21,7 +21,7 @@ export const ProductCard = (props) => {
     >
       <Stack id={id}>
         <Box position="relative">
-          <AspectRatio height={"8rem"} width={"8rem"} ratio={4 / 3}>
+          <AspectRatio height={"100%"} width={"100%"} ratio={4 / 4}>
             <Image
               src={image}
               alt={nom}
@@ -45,7 +45,7 @@ export const ProductCard = (props) => {
         </Stack>
         <Stack align="center">
           <Button backgroundColor="#D8C0AA" width="full">
-          Quick shop
+          Acheter
           </Button>
         </Stack>
       </Stack>
