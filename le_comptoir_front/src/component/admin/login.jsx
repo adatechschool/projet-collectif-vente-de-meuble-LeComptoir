@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, Stack, Heading } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -19,9 +21,12 @@ const Login = () => {
         });
         const data = await response.json()
         console.log("Data:", data)
-        // if (data === true) {
-        //     navigate('/')
-        // }
+        if (data.hasOwnProperty('users')) {
+            navigate('/productManage')
+        }
+        else {
+            throw console.error("Mauvais mail ou mdp");
+        }
     };
 
     return (

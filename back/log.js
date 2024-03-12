@@ -40,4 +40,4 @@ const signInUser = async (email, password) => {
   }
 };
 
-export default signInUser;
+module.exports = {signInUser}
