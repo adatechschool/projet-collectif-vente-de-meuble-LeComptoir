@@ -2,7 +2,7 @@ export const products = [
   {
     id: "1",
     name: "this is fine",
-    type: "meme",
+    type: "test",
     currency: "USD",
     price: 125,
     imageUrl:

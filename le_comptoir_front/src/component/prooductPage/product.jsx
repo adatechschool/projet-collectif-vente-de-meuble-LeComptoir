@@ -10,10 +10,11 @@ import {
   ButtonGroup,
   Button,
   Container,
+  ChakraBaseProvider,
 } from "@chakra-ui/react";
 import React from "react";
+import Header from '../header'
 import { useLocation } from "react-router-dom";
-
 
 function Product() {
   const location = useLocation();
@@ -21,18 +22,37 @@ function Product() {
 
   if (!product) {
     return (
+      <>
+      <Header />
       <Container maxW="2xl" centerContent>
         <Text>Product not found</Text>
       </Container>
+      </>
     );
   }
   
   return (
+
+<>
+<Header />
+<Card height="800px" width="50%">
+  <CardBody>
+    <Image src={product.image} 
+    objectFit="cover"
+    />
+  </CardBody>
+</Card>
+</>
+
+
+/* <>
+      <Header />
+
     <Container width={"100%"} centerContent>
 
     
 
-      <Card maxW="40rem">
+      <Card maxW="100%">
         <CardBody>
           <Image
             src={product.image} 
@@ -58,6 +78,8 @@ function Product() {
         </CardFooter>
       </Card>
     </Container>
+</>  */
+
   );
 }
 
