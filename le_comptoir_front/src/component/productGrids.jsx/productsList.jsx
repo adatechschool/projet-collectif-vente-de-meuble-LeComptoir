@@ -1,7 +1,8 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { ProductCard } from './productCard'
 import { useEffect, useState } from 'react'
-import { wrap } from 'module'
+
+import "../../App.css"
 
 function ProductList () {
   const [data, setdata] = useState(null)    // initalise data | setdata est une fonction qui permet de mettre à jour la valeur de data
@@ -22,16 +23,13 @@ function ProductList () {
 
   return(
 
-
     <Box
     maxW="100%"
     >
     <Box display={"Flex"} width={"100%"} gap={"4rem"} flexWrap={"wrap"}>
       {data && data.length > 0 ? 
       ( data.map((product) => (
-        <Box width="20%">
-        <ProductCard key={product.id} product={product}/>
-        </Box>
+        <ProductCard key={product.id} product={product} />
         ))
       ) : "" 
     }

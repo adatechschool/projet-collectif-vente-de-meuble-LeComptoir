@@ -76,17 +76,23 @@ const signInUser = async (email, password) => {
 
 async function changeState(state, id) {
     try {
-        if (state !== "disponible") {
-            const { error } = await supabase
+      let newStatus;
+        if (state !== "Disponible") {
+            const { data, error } = await supabase
                 .from("meubles")
-                .update({ statut: "disponible" })
+                .update({ statut: "Disponible" })
                 .eq("id", id);
+              newStatus = "Disponible"
+              if (error) throw error
         } else {
-            const { error } = await supabase
+            const { data, error } = await supabase
                 .from("meubles")
-                .update({ statut: "indisponible" })
+                .update({ statut: "Indisponible" })
                 .eq("id", id);
+              newStatus = "Indisponible"
+              if (error) throw error
         }
+        return {newStatus}
     } catch (error) {
         console.error(
             "Erreur lors de la mise à jour du statut:",
@@ -98,10 +104,11 @@ async function changeState(state, id) {
 
 async function deleteMeuble(id) {
     try {
-        const { error } = await supabase.from("meubles").delete().eq("id", id);
+        const { error } = await supabase.from("meubles_duplicate").delete().eq("id", id);
         if (error) {
             throw error;
         }
+        return { success : true}
     } catch (error) {
         console.error(
             "Erreur lors de la suppression du meuble:",
