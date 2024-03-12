@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, Stack, Heading } from '@chakra-ui/react';
 // import { singInUser } from '../../../back/supabase';
-// import ProductManage  from './admin/productManage';
+import ProductManage  from './admin/productManage';
 import { Route, Router, Routes } from 'react-router-dom';
 
 const Login = () => {

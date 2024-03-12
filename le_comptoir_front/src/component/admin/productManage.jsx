@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 
+import "../../App.css"
 import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
-    TableCaption,
     TableContainer,
+    Box,
+    Button,
 } from '@chakra-ui/react'
 
 function productManage () {
@@ -28,44 +29,47 @@ useEffect(()=>{
     fetchMeubles()
 }, [])
 
-    console.log(data)
+const handleDelete = (id) =>{
+    //todo
+} 
+
+const handleToggle = (id) =>{
+    //todo
+}
+
     return (
+    <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
         <TableContainer>
-    <Table variant='striped' colorScheme='teal'>
-    <TableCaption>Imperial to metric conversion factors</TableCaption>
-    <Thead>
-        <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
-      <Tr>
-        <Td>inches</Td>
-        <Td>millimetres (mm)</Td>
-        <Td isNumeric>25.4</Td>
-      </Tr>
-      <Tr>
-        <Td>feet</Td>
-        <Td>centimetres (cm)</Td>
-        <Td isNumeric>30.48</Td>
-      </Tr>
-      <Tr>
-        <Td>yards</Td>
-        <Td>metres (m)</Td>
-        <Td isNumeric>0.91444</Td>
-      </Tr>
-    </Tbody>
-    <Tfoot>
-      <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
-      </Tr>
-    </Tfoot>
-  </Table>
-</TableContainer>
+            <Table variant='striped' colorScheme="">
+                
+                <Thead>
+                    <Tr>
+                        <Th>Nom</Th>
+                        <Th isNumeric>Prix</Th>
+                        <Th>Statut</Th>
+                        <Th>Actions</Th>
+                    </Tr>
+                </Thead>
+            
+            <Tbody>
+                    {data && data.length > 0 ? 
+                    data.map((product) => (
+                        <Tr key={product.id}>
+                            <Td>{product.nom}</Td>
+                            <Td isNumeric>{product.prix}</Td>
+                            <Td>{product.statut}</Td>
+                            <Td display={"flex"} gap={"1rem"}>
+                                <Button className="adminBtn" onClick={() => handleToggle(product.id)}>Changer statut</Button>
+                                <Button className="adminBtn" onClick={() => handleDelete(product.id)}>Supprimer article</Button>
+                            </Td>
+                        </Tr>
+                    ))
+                    : null
+                    }
+            </Tbody>            
+            </Table>
+        </TableContainer>
+    </Box>
     )
 }
 
