@@ -25,7 +25,7 @@ function ProductList () {
     <Box
     maxW="100rem"
     >
-
+    
     <Box display={"Flex"} gap={"4rem"} flexWrap={"wrap"}>
       {data && data.length > 0 ? 
       ( data.map((product) => (
