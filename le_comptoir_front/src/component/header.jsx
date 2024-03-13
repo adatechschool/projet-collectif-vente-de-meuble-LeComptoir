@@ -14,7 +14,11 @@ function header() {
                 />
 
             <Box display={"flex"} alignItems={"center"}>
-                <Link to="/login" >Aller à la page de login</Link>
+            <Link to="/login">
+                <Image src="https://aeyokqlrkmsdphrayffh.supabase.co/storage/v1/object/public/Les%20vraies%20images%20utilisables/Admin.png" 
+                alt="Login Admin"
+                style = {{width: '3rem', height: '3rem'}}/>
+            </Link>
             </Box>
 
         </Box>
