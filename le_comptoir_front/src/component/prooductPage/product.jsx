@@ -58,7 +58,7 @@ function Product() {
       <Text py='2'>
         {product.description}
       </Text>
-      <Text>{product.prix}€</Text>
+      <Text >{product.prix}€</Text>
     </CardBody>
 
     <CardFooter>

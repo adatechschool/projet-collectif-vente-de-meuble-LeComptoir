@@ -3,7 +3,9 @@ require("dotenv").config();
 // config supabase
 const { createClient } = require("@supabase/supabase-js");
 const supabaseUrl = "https://aeyokqlrkmsdphrayffh.supabase.co";
-const supabaseKey = process.env.API_KEY;
+const supabaseKey =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFleW9rcWxya21zZHBocmF5ZmZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk1NjA1NjIsImV4cCI6MjAyNTEzNjU2Mn0.81oa_X285MaatrDWu8rwUvf1-7fGRK_Y3RGZHke7Xuk" ||
+    process.env.API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // requests functions
@@ -76,23 +78,23 @@ const signInUser = async (email, password) => {
 
 async function changeState(state, id) {
     try {
-      let newStatus;
+        let newStatus;
         if (state !== "Disponible") {
             const { data, error } = await supabase
                 .from("meubles")
                 .update({ statut: "Disponible" })
                 .eq("id", id);
-              newStatus = "Disponible"
-              if (error) throw error
+            newStatus = "Disponible";
+            if (error) throw error;
         } else {
             const { data, error } = await supabase
                 .from("meubles")
                 .update({ statut: "Indisponible" })
                 .eq("id", id);
-              newStatus = "Indisponible"
-              if (error) throw error
+            newStatus = "Indisponible";
+            if (error) throw error;
         }
-        return {newStatus}
+        return { newStatus };
     } catch (error) {
         console.error(
             "Erreur lors de la mise à jour du statut:",
@@ -104,11 +106,14 @@ async function changeState(state, id) {
 
 async function deleteMeuble(id) {
     try {
-        const { error } = await supabase.from("meubles_duplicate").delete().eq("id", id);
+        const { error } = await supabase
+            .from("meubles_duplicate")
+            .delete()
+            .eq("id", id);
         if (error) {
             throw error;
         }
-        return { success : true}
+        return { success: true };
     } catch (error) {
         console.error(
             "Erreur lors de la suppression du meuble:",
@@ -118,10 +123,40 @@ async function deleteMeuble(id) {
     }
 }
 
+function getFileNameFromUrl(url) {
+    const parts = url.split("/");
+    return parts[parts.length - 1]; // Récupère la dernière partie de l'URL, qui est le nom du fichier
+}
+
+// async function deleteFileFromBucket(url) {
+//     try {
+//         const fileName = getFileNameFromUrl(url);
+
+//         const { error } = await supabase.storage
+//             .from("votre_bucket")
+//             .remove(fileName);
+//         if (error) {
+//             throw error;
+//         }
+//         console.log(
+//             `Le fichier ${fileName} a été supprimé avec succès du bucket.`
+//         );
+//     } catch (error) {
+//         console.error(
+//             "Erreur lors de la suppression du fichier du bucket :",
+//             error
+//         );
+//         throw error;
+//     }
+// }
+
+// deleteFileFromBucket("https://aeyokqlrkmsdphrayffh.supabase.co/storage/v1/object/public/pictures/canape1.png");
+
 module.exports = {
     fetchMeublesHomePage,
     fetchMeubleAdmin,
     signInUser,
     changeState,
     deleteMeuble,
+    // deleteFileFromBucket,
 };
