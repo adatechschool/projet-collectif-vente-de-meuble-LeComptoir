@@ -36,7 +36,7 @@ function Product() {
 
 <>
 <Header />
-<Card
+<Card className="product-card"
   direction={{ base: 'column', sm: 'row' }}
   overflow='hidden'
   variant='outline'
@@ -55,9 +55,8 @@ function Product() {
 
   <Stack>
     <CardBody>
-      <Heading size='md'>{product.nom}</Heading>
-
-      <Text py='2'>
+      <Heading>{product.nom}</Heading>
+      <Text py='5'>
         {product.description}
       </Text>
       <Text>{product.prix}€</Text>
