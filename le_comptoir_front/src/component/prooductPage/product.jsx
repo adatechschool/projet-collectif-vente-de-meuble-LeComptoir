@@ -36,7 +36,8 @@ function Product() {
 
 <>
 <Header />
-<Card className="product-card"
+<Card
+  style = {{width: '100%'}}
   direction={{ base: 'column', sm: 'row' }}
   overflow='hidden'
   variant='outline'
