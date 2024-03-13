@@ -17,7 +17,7 @@ function CustomDrawer() {
             <DrawerCloseButton />
   
             <DrawerBody style={{ color: '#d8c0aa'}}>
-             
+            
           <Heading paddingTop={"2rem"} paddingBottom={"1rem"}>Type</Heading>
           <input type="checkbox" id="table" name="table" value="table" 
           style={{ width: "20px", height: "20px"}} />
@@ -51,11 +51,11 @@ function CustomDrawer() {
             </DrawerBody>
   
             <DrawerFooter>
-              <Button variant='outline' mr={3} onClick={onClose} 
+              <Button variant='outline' mr={3} onClick={onClose}
               style={{ background: '#d8c0aa', color: "white" }}>
                 Cancel
               </Button>
-              <Button colorScheme='green'>Save</Button>
+              <Button colorScheme='green' id='save'>Save</Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
