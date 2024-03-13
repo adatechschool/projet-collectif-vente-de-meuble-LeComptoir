@@ -41,6 +41,9 @@ function Product() {
   direction={{ base: 'column', sm: 'row' }}
   overflow='hidden'
   variant='outline'
+  className="card"
+  width={"100%"}
+
 >
   <Image
     src={product.image}
@@ -54,17 +57,18 @@ function Product() {
     className="responsive-image" id="image"
   />
 
-  <Stack>
-    <CardBody>
-      <Heading>{product.nom}</Heading>
-      <Text py='5'>
+  <Stack className="stack">
+    <CardBody className="card-body">
+      <Heading size='md' className="card-name">{product.nom}</Heading>
+
+      <Text py='2' >
         {product.description}
       </Text>
-      <Text>{product.prix}€</Text>
+      <Text className="price">{product.prix}€</Text>
     </CardBody>
 
-    <CardFooter>
-      <Button variant='solid' colorScheme='blue'>
+    <CardFooter className="btnBuy">
+      <Button variant='solid' colorScheme='' color={"black"} border={"solid"}>
         Acheter
       </Button>
     </CardFooter>
