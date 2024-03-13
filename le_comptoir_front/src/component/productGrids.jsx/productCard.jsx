@@ -15,6 +15,9 @@ export const ProductCard = (props) => {
   const { id, image , nom, prix, type, description } = product;
   
   return (
+    <div className="product-card">
+
+
     <Link
     to="/product"
       state={{ product }} 
@@ -51,5 +54,6 @@ export const ProductCard = (props) => {
         </Stack>
       </Stack>
     </Link>
+    </div>
   );
 };

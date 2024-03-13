@@ -1,0 +1,15 @@
+.responsive-image {
+    max-width: 100vw; /* Initial setting */
+  }
+  
+  @media (min-width: 768px) { /* Adjust breakpoints as needed */
+    .responsive-image {
+      max-width: 70vw;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .responsive-image {
+      max-width: 50vw;
+    }
+  }

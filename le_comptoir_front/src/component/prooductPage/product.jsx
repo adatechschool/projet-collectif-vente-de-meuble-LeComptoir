@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import Header from '../header'
+import "./product.css";
 import { useLocation } from "react-router-dom";
 
 function Product() {
@@ -35,12 +36,37 @@ function Product() {
 
 <>
 <Header />
-<Card height="800px" width="50%">
-  <CardBody>
-    <Image src={product.image} 
-    objectFit="cover"
-    />
-  </CardBody>
+<Card
+  direction={{ base: 'column', sm: 'row' }}
+  overflow='hidden'
+  variant='outline'
+>
+  <Image
+    src={product.image}
+    alt={product.nom}
+    borderRadius={{
+      md: "xl",
+    }}
+    margin={"10px"}
+    className="responsive-image" // Add a class for CSS targeting
+  />
+
+  <Stack>
+    <CardBody>
+      <Heading size='md'>{product.nom}</Heading>
+
+      <Text py='2'>
+        {product.description}
+      </Text>
+      <Text>{product.prix}€</Text>
+    </CardBody>
+
+    <CardFooter>
+      <Button variant='solid' colorScheme='blue'>
+        Acheter
+      </Button>
+    </CardFooter>
+  </Stack>
 </Card>
 </>
 

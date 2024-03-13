@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Heading, Input } from "@chakra-ui/react";
-import ProductList from "./return"
+import ProductList from "./productsList"
 import CustomDrawer from "./../drawer";
 
 const Magasin = () => {
