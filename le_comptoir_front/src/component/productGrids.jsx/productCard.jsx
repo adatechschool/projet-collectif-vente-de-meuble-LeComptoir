@@ -38,16 +38,17 @@ export const ProductCard = (props) => {
         <Stack>
           <Stack spacing="1">
             <Text
-              fontWeight="medium"
+              fontWeight="light"
               color={useColorModeValue("gray.700", "gray.400")}
+              fontSize={35}
             >
               {nom}
             </Text>
-            <Text> {prix}€ </Text>
+            <Text fontSize={30} fontWeight="light"> {prix}€ </Text>
           </Stack>
         </Stack>
         <Stack align="center">
-          <Button backgroundColor="#D8C0AA" width="full">
+          <Button backgroundColor="#D8C0AA" width="full" color={"white"} fontSize={30} fontWeight="medium" >
           Acheter
           </Button>
         </Stack>

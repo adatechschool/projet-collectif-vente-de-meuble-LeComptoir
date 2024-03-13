@@ -47,8 +47,10 @@ function Product() {
     borderRadius={{
       md: "xl",
     }}
+    maxW="41.5vw"
+    object-fit="cover"
     margin={"10px"}
-    className="responsive-image" // Add a class for CSS targeting
+    className="responsive-image" id="image"
   />
 
   <Stack>
@@ -69,43 +71,6 @@ function Product() {
   </Stack>
 </Card>
 </>
-
-
-/* <>
-      <Header />
-
-    <Container width={"100%"} centerContent>
-
-    
-
-      <Card maxW="100%">
-        <CardBody>
-          <Image
-            src={product.image} 
-            alt={product.nom} 
-            borderRadius="lg"
-          />
-          <Stack mt="6" spacing="3">
-            <Heading size="md">{product.nom}</Heading>
-            <Text>{product.type}</Text>
-            <Text color="#A67B5B" fontSize="2xl">
-              {product.prix}€
-            </Text>
-            <Text> {product.description} </Text>
-          </Stack>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="teal">
-              Buy now
-            </Button>
-          </ButtonGroup>
-        </CardFooter>
-      </Card>
-    </Container>
-</>  */
-
   );
 }
 
