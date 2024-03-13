@@ -1,8 +1,8 @@
 .responsive-image {
-    max-width: 100vw; /* Initial setting */
+    max-width: 100vw; 
   }
   
-  @media (min-width: 768px) { /* Adjust breakpoints as needed */
+  @media (min-width: 768px) { 
     .responsive-image {
       max-width: 70vw;
     }
