@@ -4,7 +4,7 @@ function CustomDrawer() {
     const { isOpen, onOpen, onClose } = useDisclosure()  
     return (
       <>
-        <Button colorScheme='teal' onClick={onOpen}>
+        <Button colorScheme='green' onClick={onOpen}>
           Filter  
         </Button>
         <Drawer
