@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import Header from './component/header'
-import Magasin from './component/productGrids.jsx/magasin'
+import Magasin from './component/productGrids/magasin'
 import Login from './component/admin/login';
 import Product from './component/prooductPage/product'
 import ProductManage  from './component/admin/productManage';

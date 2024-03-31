@@ -3,7 +3,7 @@ require("dotenv").config();
 // config supabase
 const { createClient } = require("@supabase/supabase-js");
 const supabaseUrl = "https://aeyokqlrkmsdphrayffh.supabase.co";
-const supabaseKey =  process.env.API_KEY;
+const supabaseKey = process.env.API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // requests functions
@@ -126,35 +126,10 @@ function getFileNameFromUrl(url) {
     return parts[parts.length - 1]; // Récupère la dernière partie de l'URL, qui est le nom du fichier
 }
 
-// async function deleteFileFromBucket(url) {
-//     try {
-//         const fileName = getFileNameFromUrl(url);
-
-//         const { error } = await supabase.storage
-//             .from("votre_bucket")
-//             .remove(fileName);
-//         if (error) {
-//             throw error;
-//         }
-//         console.log(
-//             `Le fichier ${fileName} a été supprimé avec succès du bucket.`
-//         );
-//     } catch (error) {
-//         console.error(
-//             "Erreur lors de la suppression du fichier du bucket :",
-//             error
-//         );
-//         throw error;
-//     }
-// }
-
-// deleteFileFromBucket("https://aeyokqlrkmsdphrayffh.supabase.co/storage/v1/object/public/pictures/canape1.png");
-
 module.exports = {
     fetchMeublesHomePage,
     fetchMeubleAdmin,
     signInUser,
     changeState,
     deleteMeuble,
-    // deleteFileFromBucket,
 };

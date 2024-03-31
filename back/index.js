@@ -6,7 +6,7 @@ const port = 3000;
 const cors = require("cors");
 
 const corsOptions = {
-    origin: ["http://localhost:5173","http://localhost:5174"],
+    origin: ["https://le-comptoir.vercel.app/"],
     optionSuccesStatus: 200,
 };
 
@@ -79,6 +79,3 @@ app.get("/admin", async (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Serveur en cours d'exécution sur le port ${port}`);
-});

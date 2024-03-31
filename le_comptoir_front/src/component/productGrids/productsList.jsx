@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 
+
 import { ProductCard } from "./productCard";
 import { getMeubles } from "../../utils/api";
 
